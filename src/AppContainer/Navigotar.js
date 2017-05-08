@@ -1,15 +1,29 @@
-import React, { Component, PropTypes } from 'react'
+import React, { Component } from 'react'
 
-import { Navigator as NavigatorRN, StyleSheet, Text, View } from 'react-native';
+import { Navigator, StyleSheet, Text, View } from 'react-native';
+// import { Navigator } from 'react-navigation'
 
-export default class Navigator extends Component {
+import pushPage from './../router/index'
+
+import test from './../components/test/index'
+
+export default class Navigators extends Component {
     render() {
         return (
-            <View style={styles.container}>
-                <Text style={styles.welcome}>
-                    asdfasdfas
-                </Text>
-            </View>
+            <View><Text>asdfasdf</Text>
+            </View>    
+        //     <Navigator
+        //         style={styles.container}
+        //         initialRoute={pushPage.aaa(NavigatorRN,'test',test)}
+        //         renderScene={this.renderNav}
+        //         configureScene={(pushPage, routeStack) => Navigator.SceneConfigs.HorizontalSwipeJump}
+        //         navigationBar={
+        //             <Navigator.NavigationBar
+        //                 routeMapper={NavigationBarRouteMapper}
+        //                 style={styles.navBar}
+        //             />
+        //         }   
+        //   />
         )
     }
 }
@@ -25,10 +39,5 @@ const styles = StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
-  },
-  instructions: {
-    textAlign: 'center',
-    color: '#333333',
-    marginBottom: 5,
-  },
+  }
 });
