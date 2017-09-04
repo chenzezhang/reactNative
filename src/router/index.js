@@ -1,31 +1,24 @@
+import { StackNavigator } from 'react-navigation'
 
-class pushPage {
+import Test from './../components/test/index'
 
-    constructor(navigator, name, component, params = {}) {
-        this.navigator = navigator;
-        this.name = name;
-        this.component = component;
-        this.params = params;
-        this.routes = navigator.getCurrentRoutes();
-    }
+class routerPath {
 
-    static aaa() {
-        for (let i = 0; i < routes.length; i++) {
-            if (name === routes[i].name) {
-                return;
+    static getRouter(routerName, screen, tabBarOptions = {}) {
+
+        const MyApp = StackNavigator({
+            Home: {
+                screen: Test,
+            },
+            routerName: {
+                screen: screen,
             }
-        }
-
-        InteractionManager.runAfterInteractions(() => {
-            navigator.push({
-                name: name,
-                component: component,
-                params: params
-            });
-        
-        })
-
-    }
+        },
+        {
+            tabBarOptions: tabBarOptions
+        });
+        return MyApp;
+    }   
 }
 
-export default pushPage
+export default routerPath

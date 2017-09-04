@@ -1,43 +1,38 @@
 import React, { Component } from 'react'
 
-import { Navigator, StyleSheet, Text, View } from 'react-native';
-// import { Navigator } from 'react-navigation'
+import { Text, View, Button } from 'react-native';
+import { TabNavigator } from 'react-navigation'
 
-import pushPage from './../router/index'
+// import pushPage from './../router/index'
 
-import test from './../components/test/index'
+import Test from './../components/test/index'
 
-export default class Navigators extends Component {
+import Test1 from './../components/test1/index'
+
+class Navigators extends Component {
+    static navigationOptions = {
+      tabBarLabel: 'Home'
+    }
+  
     render() {
-        return (
-            <View><Text>asdfasdf</Text>
-            </View>    
-        //     <Navigator
-        //         style={styles.container}
-        //         initialRoute={pushPage.aaa(NavigatorRN,'test',test)}
-        //         renderScene={this.renderNav}
-        //         configureScene={(pushPage, routeStack) => Navigator.SceneConfigs.HorizontalSwipeJump}
-        //         navigationBar={
-        //             <Navigator.NavigationBar
-        //                 routeMapper={NavigationBarRouteMapper}
-        //                 style={styles.navBar}
-        //             />
-        //         }   
-        //   />
-        )
+      return (
+          <Test Test1 = 'Test1' />
+        );
     }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+
+const MyApp = TabNavigator({
+  Home: {
+    screen: Navigators,
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
-  }
-});
+  Test1: {
+    screen: Test1,
+  },
+}, {
+  tabBarOptions: {
+    activeTintColor: '#e91e63',
+  },
+  });
+
+export default MyApp;
